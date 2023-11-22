@@ -16,7 +16,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <AppText>The One Piece is Real!</AppText>
+      <AppText>PLaceholder Text</AppText>
     </View>
   );
 }
