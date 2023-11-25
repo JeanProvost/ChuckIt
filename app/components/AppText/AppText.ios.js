@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
+import colors from '../../config/colors';
 
 function AppText({ children }) {
     return <Text style={styles.text}>{children}</Text>
@@ -7,10 +8,9 @@ function AppText({ children }) {
 
 const styles = StyleSheet.create({
     text: {
-        color: colors.tertiary,
-        fontSize: 20,
+        color: colors.secondary,
+        fontSize: 18,
         fontFamily: "Avenir",
-        
     },
 })
 
