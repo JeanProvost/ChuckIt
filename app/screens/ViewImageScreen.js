@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     deleteIcon: {
         width: 50,
         height: 50,
-        backgroundColor: colors.secdondary,
+        backgroundColor: colors.secondary,
         position: "absolute",
         top: 40,
         right: 30,
