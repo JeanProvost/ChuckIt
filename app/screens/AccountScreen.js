@@ -103,8 +103,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     logoutContainer: {
-        paddingTop: 200,
-        justifyContent: "flex-end",
+        paddingTop: "40%",
     },
     listContainer: {
         marginLeft: 10,
