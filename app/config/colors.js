@@ -8,4 +8,6 @@ export default {
     lightGray: "#d3d3d3",
     danger: "#ff5252",
     borderGray: "#979aaa",
+    light: "#f8f4f4",
+    darkGray: "#0c0c0c",
 };

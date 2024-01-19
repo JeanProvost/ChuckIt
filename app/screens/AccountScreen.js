@@ -62,8 +62,8 @@ function AccountScreen(props) {
                                     ItemSeparatorComponent={ListItemSeperator}
                                     renderItem={({ item }) => (
                                         <TouchableHighlight
-                                        activeOpacity={0.6}
-                                        underlayColor="#DDDDDD"
+                                            activeOpacity={0.2}
+                                            underlayColor="#DDDDDD"
                                         
                                         >
                                             <ListItem 
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     },
     profileInfoContainer: {
         borderBottomColor: colors.lightGray,
-        borderBottomWidth: 2,
+        borderBottomWidth: 1,
     }
 })
 
