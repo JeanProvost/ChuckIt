@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
     padding: "7%",
   },
   image: {
-    width: 70,
-    height: 70,
+    width: 90,
+    height: 90,
     borderRadius: 35,
-    marginRight: 10,
+    marginRight: 1,
   },
   title: {
     fontWeight: "400",
