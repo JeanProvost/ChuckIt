@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     text: {
-        flex: 1
+        flex: 1,
     },
 })
 
