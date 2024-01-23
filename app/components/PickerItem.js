@@ -5,14 +5,14 @@ import AppText from './AppText/AppText';
 function PickerItem({ label, onPress }) {
     return (
         <TouchableOpacity onPress={onPress}>
-            <AppText styles={styles.text}>{label}</AppText>
+            <AppText style={styles.text}>{label}</AppText>
         </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
     text: {
-        padding: 20,
+        padding: 10,
     }
 })
 
