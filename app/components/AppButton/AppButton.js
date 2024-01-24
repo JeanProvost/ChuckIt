@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import colors from "../../config/colors";
 
-function WelcomeButton({title, onPress, color = "primary" }) {
+function AppButton({title, onPress, color = "primary" }) {
     return (
         <TouchableOpacity
             style={[styles.button, { backgroundColor: colors[color] }]}
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default WelcomeButton;
+export default AppButton;
