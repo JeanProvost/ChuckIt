@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import ListingScreen from "./app/screens/ListingScreen";
-import { Switch, Text, TextInput } from "react-native";
-import Screen from "./app/components/Screen";
-import AppTextInput from "./app/components/AppTextInput";
-import AppPicker from "./app/components/AppPicker";
-import LoginScreen from "./app/screens/LoginScreen";
+// import ListingScreen from "./app/screens/ListingScreen";
+// import { Switch, Text, TextInput } from "react-native";
+// import Screen from "./app/components/Screen";
+// import AppTextInput from "./app/components/AppTextInput";
+// import AppPicker from "./app/components/AppPicker";
+// import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 
 export default function App() {
