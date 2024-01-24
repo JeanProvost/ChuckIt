@@ -27,7 +27,7 @@ function LoginScreen(props) {
                             keyBoardType="email-address"
                             autoCorrect={false}
                             name="email"
-                            textContentType="email"
+                            textContentType="emailAddress"
                         />
                         <AppTextInput
                             autoCapitalize="none"
