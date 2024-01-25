@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     placeholder: {
-        color: defaultStyles.colors.danger,
+        color: defaultStyles.colors.mediumGray,
         flex: 1,
     },
 })
