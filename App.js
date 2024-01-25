@@ -6,11 +6,12 @@ import React, { useState } from "react";
 // import AppPicker from "./app/components/AppPicker";
 // import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
+import EditListingScreen from "./app/screens/EditListingScreen";
 
 export default function App() {
 
   return (
-    <RegisterScreen />
+    <EditListingScreen />
   );
 }
 
