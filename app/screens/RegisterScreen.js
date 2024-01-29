@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, View } from 'react-native';
 import Screen from '../components/Screen';
 import AppTextInput from '../components/AppTextInput';
 import * as Yup from 'yup';
@@ -18,22 +18,24 @@ function RegisterScreen(props) {
             <AppForm
                 initialValues={{firstname: '', lastname: '', email: '', password: ''}}
                 onSubmit={values => console.log(values)}
-                validdationSchema={validationSchema}
+                validationSchema={validationSchema}
             >
-                <AppFormField 
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    icon="account"
-                    placeholder="First Name"
-                    name="firstname"
-                />
-                <AppFormField 
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    icon="account"
-                    placeholder="Last Name"
-                    name="lastName"
-                />
+                
+                    <AppFormField 
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        icon="account"
+                        placeholder="First Name"
+                        name="firstname"
+                    />
+                    <AppFormField 
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        icon="account"
+                        placeholder="Last Name"
+                        name="lastame"
+                    />
+
                 <AppFormField 
                     autoCapitalize="none"
                     autoCorrect={false}
@@ -62,6 +64,11 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
         marginTop: 10,
+    },
+    fullname: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        flex: 1,
     }
 })
 
