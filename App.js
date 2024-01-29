@@ -11,7 +11,7 @@ import EditListingScreen from "./app/screens/EditListingScreen";
 export default function App() {
 
   return (
-    <EditListingScreen />
+    <RegisterScreen />
   );
 }
 
