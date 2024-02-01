@@ -4,10 +4,10 @@ import Icon from './Icon';
 import AppText from './AppText';
 
 function CategoryPickerItem({ item, onPress }) {
-    return <View styles={styles.container}> 
-        <Icon backgroundColor={item.backgroundColor} name={item.icon} size={80} />
-        <AppText style={styles.label}>{item.label}</AppText>
-    </View>;
+    return <View style={styles.container}> 
+                <Icon backgroundColor={item.backgroundColor} name={item.icon} size={80} />
+                <AppText style={styles.label}>{item.label}</AppText>
+           </View>;
 }
 
 const styles = StyleSheet.create({

@@ -17,7 +17,9 @@ const categories = [
     { label: "Furniture", backgroundColor: 'red', icon: 'bed-empty', value: 1},
     { label: "Clothing", backgroundColor: 'green', icon: 'shopping', value: 2},
     { label: "Electronics", backgroundColor: 'blue', icon: 'email', value: 3},
-    { label: "Misc", backgroundColor: 'purple', icon: 'bowl-mix', value: 4},
+    { label: "Vehicles", backgroundColor: 'yellow', icon: 'car', value: 4},
+    { label: "Books", backgroundColor: 'lightblue', icon: 'book', value: 5},
+    { label: "Misc", backgroundColor: 'purple', icon: 'bowl-mix', value: 6},
   ];
 
 function EditListingScreen(props) {
@@ -49,7 +51,7 @@ function EditListingScreen(props) {
                     name="category"
                     placeholder="Category"
                     selectedItem={category}
-                    onSelectItem={item => setCategory(item)}
+                    
                     items={categories}
                     width="50%"
                     PickerItemComponent={CategoryPickerItem}
