@@ -12,14 +12,14 @@ import colors from '../config/colors';
 const initialMessages = [
     {
         id: 1,
-        title: 'T1',
-        description: 'D1',
+        title: 'Jack Jonson',
+        description: 'Hello, is the item still available?',
         image: require('../assets/images/defaultIcon.jpg')
     },
     {
         id: 2,
-        title: 'T2',
-        description: 'D2',
+        title: 'Mark Zeiger',
+        description: 'Does 2pm work to pickup the item?',
         image: require('../assets/images/defaultIcon.jpg')
     },
 ]
@@ -53,10 +53,17 @@ function MessagesScreen() {
                     setMessages([
                         {
                             id: 1,
-                            title: 'T1',
-                            description: 'D1',
+                            title: 'Jack Jonson',
+                            description: 'Hello, is the item still available?',
                             image: require('../assets/images/defaultIcon.jpg')
                         },
+                        {
+                            id: 2,
+                            title: 'Mark Zeiger',
+                            description: 'Does 2pm work to pickup the item?',
+                            image: require('../assets/images/defaultIcon.jpg')
+                        }
+
                     ])
                 }}
             />

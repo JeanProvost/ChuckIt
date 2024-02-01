@@ -7,13 +7,14 @@ import AppText from '../components/AppText/AppText';
 import Screen from './Screen';
 import PickerItem from './PickerItem';
 
-function AppPicker({ icon, placeholder, onSelectItem, selectedItem, items }) {
+function AppPicker({ icon, 
+    placeholder, onSelectItem, selectedItem, items, width="100%", PickerItemComponent = PickerItem, numberOfColumns}) {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <>
             <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-                <View style={styles.container}>
+                <View style={[styles.container, { width }]}>
                     {icon && <MaterialCommunityIcons 
                         name={icon} 
                         size={20} 
@@ -29,17 +30,20 @@ function AppPicker({ icon, placeholder, onSelectItem, selectedItem, items }) {
                         name="chevron-down" 
                         size={20} 
                         color={defaultStyles.colors.mediumGray} 
+                        style={styles.chevron}
                     />
                 </View>
             </TouchableWithoutFeedback>
             <Modal visible={modalVisible} animationType="slide" >
                 <Screen>
                     <Button title="Close" onPress={() => setModalVisible(false)} />
-                        <FlatList 
+                        <FlatList
+                        numberOfColumns={numberOfColumns}
                         data={items}
                         keyExtractor={item => item.value.toString()}
                         renderItem={({ item }) => 
-                            <PickerItem 
+                            <PickerItemComponent
+                                item={item}
                                 label={item.label}
                                 onPress={() => {
                                     setModalVisible(false);
@@ -48,8 +52,7 @@ function AppPicker({ icon, placeholder, onSelectItem, selectedItem, items }) {
                             /> 
                         } 
                         />
-                </Screen>
-                
+                </Screen>       
             </Modal>
         </>
     );
@@ -60,7 +63,6 @@ const styles = StyleSheet.create({
         backgroundColor: defaultStyles.colors.light,
         borderRadius: 25,
         flexDirection: "row",
-        width: '100%',
         padding: 15,
         marginVertical: 10,
     },
@@ -74,6 +76,10 @@ const styles = StyleSheet.create({
         color: defaultStyles.colors.mediumGray,
         flex: 1,
     },
+    chevron: {
+        flex: 1,
+        marginLeft: "40%",
+    }
 })
 
 export default AppPicker;
