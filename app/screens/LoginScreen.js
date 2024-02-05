@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, ImageBackground } from 'react-native';
 import Screen from '../components/Screen';
 import AppTextInput from '../components/AppTextInput';
 import * as Yup from 'yup';
@@ -13,39 +13,47 @@ const validationSchema = Yup.object().shape({
 function LoginScreen(props) {
 
     return (
+        <ImageBackground style={styles.backgroundImage} source={require("../assets/images/background.jpg")}>
         <Screen style={styles.container}>
-            <Image style={styles.logo} source={require("../assets/images/logo.png")} />
+        
+        <Image style={styles.logo} source={require("../assets/images/logo.png")} />
             <AppForm
                 initialValues={{email: '', password: '' }}
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-                <AppFormField
-                            icon="email"
-                            autoCapitalize="none"
-                            placeholder="Email"
-                            keyBoardType="email-address"
-                            autoCorrect={false}
-                            name="email"
-                            textContentType="emailAddress"
-                        />
-                        <AppTextInput
-                            autoCapitalize="none"
-                            autoCorrect={false}
-                            icon="lock"
-                            placeholder="Password"
-                            secureTextEntry
-                            textContentType="password"
-                            name="password"
-                        />
-                        <SubmitButton title="Login" />
+            <AppFormField
+                icon="email"
+                autoCapitalize="none"
+                placeholder="Email"
+                keyBoardType="email-address"
+                autoCorrect={false}
+                name="email"
+                textContentType="emailAddress"
+                    />
+            <AppTextInput
+                autoCapitalize="none"
+                autoCorrect={false}
+                icon="lock"
+                placeholder="Password"
+                secureTextEntry
+                textContentType="password"
+                name="password"
+            />
+                    <SubmitButton title="Login" />
             </AppForm> 
         </Screen>
+        </ImageBackground>
     );
 }
 const styles = StyleSheet.create({
     container: {
         padding: 10,
+        flex: 1,
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: "cover",
     },
     logo: {
         width: '30%',

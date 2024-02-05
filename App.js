@@ -7,9 +7,10 @@ import * as ImagePicker from 'expo-image-picker';
 import Screen from "./app/components/Screen";
 import * as Permissions from 'expo-permissions';
 import ImageInput from "./app/components/ImageInput";
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
-  const [ imageUri, setImageUri ] = useState();
+  /* const [ imageUri, setImageUri ] = useState();
   const requestPermission = async () => {
     //const result = await Permissions.askAsync(Permissions.MEDIA_LIBRARY, Permissions.LOCATION_FOREGROUND);
     const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -34,9 +35,10 @@ const selectImage = async () => {
     }
   }
 
-  return <Screen>
+  return /* <Screen>
     <ImageInput 
       onChangeImage={(uri) => setImageUri(uri)}
       imageUri={imageUri}/>
-  </Screen>;
+  </Screen>; */
+  return <LoginScreen />;
 }
