@@ -7,7 +7,7 @@ import * as ImagePicker from 'expo-image-picker';
 function ImageInput({ imageUri, onChangeImage }) {
     useEffect(() => {
         requestPermission();
-    }, [])
+    }, []);
 
     const requestPermission = async () => {
         //const result = await Permissions.askAsync(Permissions.MEDIA_LIBRARY, Permissions.LOCATION_FOREGROUND);
