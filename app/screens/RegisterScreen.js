@@ -20,31 +20,33 @@ function RegisterScreen(props) {
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-                
-                    <AppFormField 
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        icon="account"
-                        placeholder="First Name"
-                        name="firstname"
-                    />
-                    <AppFormField 
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        icon="account"
-                        placeholder="Last Name"
-                        name="lastame"
-                    />
-
                 <AppFormField 
                     autoCapitalize="none"
                     autoCorrect={false}
                     icon="email"
                     placeholder="Email"
                     name="email"
-                    keyBoardType="email-address"
+                    keyboardType="email-address"
                     textContentType="emailAddress"
                 />
+                <View style={styles.row}>
+                    <AppFormField
+                        style={styles.firstname}
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        icon="account"
+                        placeholder="First Name"
+                        name="firstname"
+                    />
+                    <AppFormField
+                        style={styles.lastname}
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        icon="account"
+                        placeholder="Last Name"
+                        name="lastname"
+                    />
+                </View>
                 <AppFormField 
                     autoCapitalize="none"
                     autoCorrect={false}
@@ -65,11 +67,19 @@ const styles = StyleSheet.create({
         padding: 10,
         marginTop: 10,
     },
-    fullname: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        flex: 1,
-    }
+    row: {
+        flexDirection: "row",
+    },
+    firstname: {
+        flex: 0.5,
+        marginRight: 5,
+        width: "50%",
+    },
+    lastname: {
+        flex: 0.5,
+        marginLeft: 5,
+        width: "50%",
+    },
 })
 
 export default RegisterScreen;
