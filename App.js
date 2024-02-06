@@ -40,5 +40,5 @@ const selectImage = async () => {
       onChangeImage={(uri) => setImageUri(uri)}
       imageUri={imageUri}/>
   </Screen>; */
-  return <LoginScreen />;
+  return <RegisterScreen />;
 }
