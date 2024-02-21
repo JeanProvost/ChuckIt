@@ -1,16 +1,20 @@
 import React from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { TextInput, StyleSheet, View } from 'react-native';
+import { TextInput, StyleSheet, View, SafeAreaView } from 'react-native';
 import defaultStyles from '../config/styles';
+import { TouchableOpacity } from 'react-native';
 
-function AppTextInput({ icon, ...otherProps }) {
+function AppTextInput({ icon, onPress, ...otherProps }) {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity onPress={onPress}>
+            <View style={styles.container}>
             {icon && <MaterialCommunityIcons name={icon} size={20} color={defaultStyles.colors.mediumGray} style={styles.icon} />}
-            <TextInput 
+            <TextInput
                 placeholderTextColor={defaultStyles.colors.mediumGray}
                 style={defaultStyles.text} {...otherProps} />
         </View>
+        </ TouchableOpacity>
+        
     );
 }
 

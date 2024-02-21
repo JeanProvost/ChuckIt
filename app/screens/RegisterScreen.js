@@ -20,7 +20,6 @@ function RegisterScreen(props) {
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-                
                     <AppFormField 
                         autoCapitalize="none"
                         autoCorrect={false}
