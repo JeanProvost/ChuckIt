@@ -1,10 +1,10 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View, Image, Text } from 'react-native';
+import { ImageBackground, StyleSheet, View, Image, Text, Button } from 'react-native';
 import AppText from "../components/AppText";
 import colors from '../config/colors';
-import WelcomeButton from '../components/WelcomeButton';
+import AppButton from '../components/AppButton/AppButton';
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
     return (
         <ImageBackground
             style={styles.background}
@@ -15,8 +15,8 @@ function WelcomeScreen(props) {
                 <AppText>User Marketplace</AppText>
             </View>
             <View style={styles.buttonContainer}>
-                <WelcomeButton title="Login" />
-                <WelcomeButton title="Register" color="secondary" />
+                <AppButton title="Login" onPress={() => navigation.navigate("Login")} />
+                <AppButton title="Register" color="secondary" onPress={() => navigation.navigate("Register")} />
             </View>
 
         </ImageBackground>

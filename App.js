@@ -3,41 +3,61 @@ import { Button, Image, Text } from "react-native";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import EditListingScreen from "./app/screens/EditListingScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
-import * as ImagePicker from 'expo-image-picker';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Screen from "./app/components/Screen";
-import * as Permissions from 'expo-permissions';
-import ImageInput from "./app/components/ImageInput";
-import LoginScreen from "./app/screens/LoginScreen";
-import ImageInputList from "./app/components/ImageInputList";
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import defaultStyles from '../ChuckIt/app/config/colors';
+import AuthNavigator from "./app/navigation/AuthNavigator";
 
+const Link = () => {
+  const navigation = useNavigation();
 
-const BoardPost = () => (
+  return (
+    <Button 
+      title="View Post"
+      onPress={() => navigation.navigate('PostDetails', { id: 1 }) }
+    />
+  );
+};
+
+const Post = ({ navigation }) => (
   <Screen>
-    <Text>Board Post</Text>
+    <Text> Post</Text>
+    <Link />
   </Screen>
 );
 
-const BoardDetails = () => (
+const PostDetails = ({ route }) => (
   <Screen>
-    <Text>Board Details</Text>
+    <Text> PostDetails {route.params.id}</Text>
   </Screen>
 );
 
 const Stack = createStackNavigator();
 const StackNavigator = () => (
-  <Stack.Navigator initialRouteName="BoardPost">
-    <Stack.Screen name="BoardPost" component={BoardPost}  />
-    <Stack.Screen name="BoardDetails" component={BoardDetails}  />
+  <Stack.Navigator>
+    <Stack.Screen name="Post" component={Post} />
+    <Stack.Screen name="PostDetails" component={PostDetails}/>
   </Stack.Navigator>
 );
+
+const Account = () => <Screen><Text>Account</Text></Screen>
+
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => (
+  <Tab.Navigator>
+    <Tab.Screen name="Feed" component={Post} />
+    <Tab.Screen name="Account" component={Account} />
+  </Tab.Navigator>
+)
 
 export default function App() {
   
   return (
     <NavigationContainer>
-      <StackNavigator />
+      <AuthNavigator />
     </NavigationContainer>
   );
 }
