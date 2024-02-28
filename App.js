@@ -10,6 +10,8 @@ import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import defaultStyles from '../ChuckIt/app/config/colors';
 import AuthNavigator from "./app/navigation/AuthNavigator";
+import NavigationTheme from "./app/navigation/NavigationTheme";
+import AppNavigator from "./app/navigation/AppNavigator";
 
 const Link = () => {
   const navigation = useNavigation();
@@ -56,8 +58,8 @@ const TabNavigator = () => (
 export default function App() {
   
   return (
-    <NavigationContainer>
-      <AuthNavigator />
+    <NavigationContainer theme={NavigationTheme} >
+      <AppNavigator />
     </NavigationContainer>
   );
 }

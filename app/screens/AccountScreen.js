@@ -31,6 +31,7 @@ const menuItems = [
             name: "email",
             backgroundColor: colors.secondary,
         },
+        targetScreen :"Messages"
     },
     {
         title: "Settings",
@@ -41,7 +42,7 @@ const menuItems = [
     },
 ]
 
-function AccountScreen(props) {
+function AccountScreen({ navigation }) {
     return (
         <Screen>
             <View style={styles.profileInfoContainer} >
@@ -74,6 +75,7 @@ function AccountScreen(props) {
                                                         backgroundColor={item.icon.backgroundColor} 
                                                     />
                                                 }
+                                                onPress={() => navigation.navigate(item.targetScreen)}
                                             />
                                         </TouchableHighlight>
                                     )}
