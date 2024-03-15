@@ -5,12 +5,15 @@ import AppForm from '../components/Forms/AppForm';
 import Screen from '../components/Screen';
 import * as Yup from 'yup';
 import CategoryPickerItem from "../components/CategoryPickerItem";
+import FormImagePicker from "../components/FormImagePicker";
+import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required().label("Title"),
     price: Yup.string().required().label("Price"),
     category: Yup.string().required().label("Category"),
-    description: Yup.string().required().nullable().label("Description")
+    description: Yup.string().required().nullable().label("Description"),
+    images: Yup.array().min(1, "Please select at least one image."),
 });
 
 const categories = [
@@ -24,15 +27,24 @@ const categories = [
 
 function EditListingScreen(props) {
     const [category, setCategory] = useState();
-    const [isNew, setIsNew] = useState(false);
+    //const [isNew, setIsNew] = useState(false);
+
+    const location = useLocation();
 
     return (
         <Screen style={styles.container}>
             <AppForm
-                initialValues={{title: '', price: '', category: null, description: ''}}
-                onSubmit={values => console.log(values)}
+                initialValues={{
+                    title: '', 
+                    price: '', 
+                    category: null, 
+                    description: '',
+                    images: [],
+                }}
+                onSubmit={values => console.log(location)}
                 validationSchema={validationSchema}
             >
+                <FormImagePicker name="images" />
                 <AppFormField 
                     autoCapitalize="none"
                     autoCorrect={false}
