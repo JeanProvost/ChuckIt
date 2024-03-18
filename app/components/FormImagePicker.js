@@ -1,30 +1,34 @@
-import React from 'react';
-import ImageInputList from './ImageInputList';
-import { ErrorMessage } from './Forms';
-import { useFormikContext } from 'formik';
+import React from "react";
+import { useFormikContext } from "formik";
 
-function FormImagePicker( name ) {
-    const { setFieldTouched, handleChange, errors, touched, values, setFieldValue } = useFormikContext();
-    const imageUris = values[name];
+import ErrorMessage from "./Forms/ErrorMessage";
+import ImageInputList from "./ImageInputList";
 
-    const handleAdd = uri => {
-        setFieldValue([name, ...imageUris, uri]);
-      }
-    
-      const handleRemove = uri => {
-        setFieldValue(name, imageUris.filter(imageUri => imageUri !== uri));
-      }
+function FormImagePicker({ name }) {
+  const { errors, setFieldValue, touched, values } = useFormikContext();
+  const imageUris = values[name];
 
-    return (
-        <>
-            <ImageInputList 
-                imageUris={imageUris}
-                onAddImage={handleAdd}
-                onRemoveImage={handleRemove}
-            />
-            <ErrorMessage error={errors[name]} visible={touched[name]} />
-        </>
+  const handleAdd = (uri) => {
+    setFieldValue(name, [...imageUris, uri]);
+  };
+
+  const handleRemove = (uri) => {
+    setFieldValue(
+      name,
+      imageUris.filter((imageUri) => imageUri !== uri)
     );
+  };
+
+  return (
+    <>
+      <ImageInputList
+        imageUris={imageUris}
+        onAddImage={handleAdd}
+        onRemoveImage={handleRemove}
+      />
+      <ErrorMessage error={errors[name]} visible={touched[name]} />
+    </>
+  );
 }
 
 export default FormImagePicker;
