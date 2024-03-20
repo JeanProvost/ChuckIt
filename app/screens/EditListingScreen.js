@@ -10,12 +10,12 @@ import useLocation from "../hooks/useLocation";
 import listingApi from '../api/listings';
 
 const validationSchema = Yup.object().shape({
-    title: Yup.string().required().label("Title"),
-    price: Yup.string().required().label("Price"),
-    category: Yup.object().required().label("Category"),
-    description: Yup.string().nullable().label("Description"),
+    title: Yup.string().required().min(1).label("Title"),
+    price: Yup.number().required().min(1).max(10000).label("Price"),
+    description: Yup.string().label("Description"),
+    category: Yup.object().required().nullable().label("Category"),
     images: Yup.array().min(1, "Please select at least one image."),
-});
+  });
 
 const categories = [
     { label: "Furniture", backgroundColor: "red", icon: "bed-empty", value: 1},
@@ -44,10 +44,10 @@ function EditListingScreen(props) {
         <Screen style={styles.container}>
             <AppForm
                 initialValues={{
-                    title: '', 
-                    price: '', 
+                    title: "", 
+                    price: "", 
                     category: null, 
-                    description: '',
+                    description: "",
                     images: [],
                 }}
                 onSubmit={handleSubmit}
@@ -73,7 +73,6 @@ function EditListingScreen(props) {
                     name="category"
                     placeholder="Category"
                     selectedItem={category}
-                    
                     items={categories}
                     width="50%"
                     PickerItemComponent={CategoryPickerItem}
