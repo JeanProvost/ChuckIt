@@ -7,17 +7,18 @@ import * as Yup from 'yup';
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import FormImagePicker from "../components/FormImagePicker";
 import useLocation from "../hooks/useLocation";
+import listingApi from '../api/listings';
 
 const validationSchema = Yup.object().shape({
-    title: Yup.string().required().label("Title"),
-    price: Yup.string().required().label("Price"),
-    category: Yup.string().required().label("Category"),
-    description: Yup.string().required().nullable().label("Description"),
+    title: Yup.string().required().min(1).label("Title"),
+    price: Yup.number().required().min(1).max(10000).label("Price"),
+    description: Yup.string().label("Description"),
+    category: Yup.object().required().nullable().label("Category"),
     images: Yup.array().min(1, "Please select at least one image."),
-});
+  });
 
 const categories = [
-    { label: "Furniture", backgroundColor: 'red', icon: 'bed-empty', value: 1},
+    { label: "Furniture", backgroundColor: "red", icon: "bed-empty", value: 1},
     { label: "Clothing", backgroundColor: 'green', icon: 'shopping', value: 2},
     { label: "Electronics", backgroundColor: 'blue', icon: 'email', value: 3},
     { label: "Vehicles", backgroundColor: 'yellow', icon: 'car', value: 4},
@@ -28,20 +29,28 @@ const categories = [
 function EditListingScreen(props) {
     const [category, setCategory] = useState();
     //const [isNew, setIsNew] = useState(false);
-
     const location = useLocation();
+    const handleSubmit = async (listing) => {
+        const result = await listingApi.addListing({...listing, location});
+        if (!result.ok) {
+            const errorMessage = result.data.error || 'Could not save the listing';
+            return alert(errorMessage);
+        } else {
+            alert('Success');
+        }
+    };
 
     return (
         <Screen style={styles.container}>
             <AppForm
                 initialValues={{
-                    title: '', 
-                    price: '', 
+                    title: "", 
+                    price: "", 
                     category: null, 
-                    description: '',
+                    description: "",
                     images: [],
                 }}
-                onSubmit={values => console.log(location)}
+                onSubmit={handleSubmit}
                 validationSchema={validationSchema}
             >
                 <FormImagePicker name="images" />
@@ -52,7 +61,8 @@ function EditListingScreen(props) {
                     name="title"
                     maxLength={255}
                 />
-                <AppFormField 
+                <AppFormField
+                    keyboardType="numeric"
                     autoCapitalize="none"
                     autoCorrect={false}
                     placeholder="Price"
@@ -63,7 +73,6 @@ function EditListingScreen(props) {
                     name="category"
                     placeholder="Category"
                     selectedItem={category}
-                    
                     items={categories}
                     width="50%"
                     PickerItemComponent={CategoryPickerItem}
