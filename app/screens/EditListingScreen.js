@@ -31,9 +31,9 @@ function EditListingScreen(props) {
     //const [isNew, setIsNew] = useState(false);
     const location = useLocation();
     const handleSubmit = async (listing) => {
-        const result = await listingApi.addListing({...listing, location});
-        if (!result.ok) {
-            const errorMessage = result.data.error || 'Could not save the listing';
+        const result = await listingApi.addListing({ ...listing, location });
+        if (!result.ok || !result) {
+            const errorMessage = result && result.data && result.data.error ? String(result.data.error) : 'Could not save the listing';
             return alert(errorMessage);
         } else {
             alert('Success');
